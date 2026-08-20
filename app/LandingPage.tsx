@@ -66,7 +66,7 @@ const copy = {
     licenseDetails: "了解许可证",
     purchaseSoon: "即将上线",
     tryFirst: "免费试用 30 天，购买前先确认兼容性。",
-    facts: ["Windows 10 & 11", "64 位", "USB + 蓝牙"],
+    facts: ["Windows 10 & 11", "64 位", "有线 + 蓝牙"],
     featureLabel: "为什么选择 Magic Link",
     features: [
       ["完整的触控板控制", "在一个清晰界面中调整跟踪、点按、滚动、缩放和多指手势。"],
@@ -77,7 +77,7 @@ const copy = {
     compatibilityTitle: "购买前确认兼容性。",
     compatibilityBody: "受支持的 Magic Trackpad 已提供完整驱动和设置。Magic Mouse、Magic Keyboard 可通过 Windows 自带驱动完成基本使用，也可以在 Magic Link 中识别和管理；高级控制仍在开发。",
     supported: "完整支持",
-    supportedValue: "通过 USB 或蓝牙连接的受支持 Magic Trackpad",
+    supportedValue: "通过有线或蓝牙连接的受支持 Magic Trackpad",
     system: "系统要求",
     systemValue: "Windows 10 或 11，x64",
     developing: "正在开发",
@@ -145,7 +145,7 @@ export default function LandingPage({ language }: { language: Language }) {
           {c.features.map(([title, body], index) => (
             <article className="featureCard" key={title}>
               <div className={`featureVisual visual${index + 1}`} aria-hidden="true">
-                {index === 0 && <><img className="featureProduct trackpadProduct" src="/products/trackpad-angle.jpg" alt="" /><div className="gesturePoints"><i /><i /></div></>}
+                {index === 0 && <img className="featureProduct trackpadSettings" src="/products/trackpad-settings.png" alt="" />}
                 {index === 1 && <><img className="featureProduct mouseProduct" src="/products/mouse-top.jpg" alt="" /><div className="connectionCard"><b>{isZh ? "蓝牙已连接 / 有线连接" : "Bluetooth connected"}</b></div></>}
                 {index === 2 && <><DeviceRow name="Magic Trackpad" image="/products/trackpad-top.jpg" /><DeviceRow name="Magic Mouse" image="/products/mouse-top.jpg" /><DeviceRow name="Magic Keyboard" image="/products/keyboard-front.jpg" /></>}
               </div>
