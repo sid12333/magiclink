@@ -12,7 +12,8 @@ test("builds the English landing page with search metadata", async () => {
   assert.match(html, /Magic Link — Apple input devices on Windows/);
   assert.match(html, /rel="canonical" href="https:\/\/magic-link\.app\/"/);
   assert.match(html, /hreflang="zh-CN" href="https:\/\/magic-link\.app\/zh-cn"/);
-  assert.match(html, /id="root"/);
+  assert.match(html, /Use your Magic devices/);
+  assert.match(html, /Free trial coming soon/);
 });
 
 test("builds the Chinese landing page with search metadata", async () => {
@@ -21,7 +22,8 @@ test("builds the Chinese landing page with search metadata", async () => {
   assert.match(html, /Magic Link — 让 Apple 输入设备自然融入 Windows/);
   assert.match(html, /rel="canonical" href="https:\/\/magic-link\.app\/zh-cn"/);
   assert.match(html, /hreflang="en" href="https:\/\/magic-link\.app\/"/);
-  assert.match(html, /id="root"/);
+  assert.match(html, /在 Windows 上使用/);
+  assert.match(html, /试用版即将上线/);
 });
 
 test("copies crawler and routing files into the deployment", async () => {

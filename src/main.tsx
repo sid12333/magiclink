@@ -1,5 +1,5 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { hydrateRoot } from "react-dom/client";
 import LandingPage from "../app/LandingPage";
 import "../app/globals.css";
 
@@ -11,7 +11,8 @@ if (!root) {
 
 const language = document.documentElement.lang === "zh-CN" ? "zh" : "en";
 
-createRoot(root).render(
+hydrateRoot(
+  root,
   <StrictMode>
     <LandingPage language={language} />
   </StrictMode>,

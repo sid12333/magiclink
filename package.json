@@ -7,10 +7,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "start": "vite preview",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
-    "lint": "eslint app src tests vite.config.ts"
+    "lint": "eslint app src scripts tests vite.config.ts"
   },
   "dependencies": {
     "react": "19.2.6",
