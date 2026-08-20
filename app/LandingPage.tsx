@@ -20,9 +20,8 @@ const copy = {
     licenseDetails: "License details",
     purchaseSoon: "Purchase coming soon",
     tryFirst: "Free for 30 days. Check compatibility before you buy.",
-    facts: ["Windows 10 & 11", "64-bit", "USB + Bluetooth", "English + Chinese"],
+    facts: ["Windows 10 & 11", "64-bit", "USB + Bluetooth"],
     featureLabel: "Why Magic Link",
-    featureTitle: "The controls you expect.\nNothing you don’t.",
     features: [
       ["Full Trackpad controls", "Tune tracking, clicking, scrolling, zooming, and multi-finger gestures from one clean screen."],
       ["A steadier connection", "See how your device is connected, repair the connection, and export diagnostics when Bluetooth misbehaves."],
@@ -67,9 +66,8 @@ const copy = {
     licenseDetails: "了解许可证",
     purchaseSoon: "即将开放购买",
     tryFirst: "免费试用 30 天，购买前先确认兼容性。",
-    facts: ["Windows 10 与 11", "64 位", "USB + 蓝牙", "中文 + 英文"],
+    facts: ["Windows 10 与 11", "64 位", "USB + 蓝牙"],
     featureLabel: "为什么选择 Magic Link",
-    featureTitle: "需要的控制，\n刚刚好。",
     features: [
       ["完整的触控板控制", "在一个清晰界面中调整跟踪、点按、滚动、缩放和多指手势。"],
       ["更稳定的连接", "查看设备连接方式、修复异常连接，并在蓝牙出现问题时导出诊断信息。"],
@@ -143,7 +141,6 @@ export default function LandingPage({ language }: { language: Language }) {
 
       <section className="section shell" id="features">
         <p className="sectionLabel">{c.featureLabel}</p>
-        <h2 className="sectionTitle preserveLines">{c.featureTitle}</h2>
         <div className="featureGrid">
           {c.features.map(([title, body], index) => (
             <article className="featureCard" key={title}>

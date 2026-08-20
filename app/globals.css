@@ -104,9 +104,8 @@ footer { padding:62px 0 34px; background:#111214; color:#f7f7f8; }
   .stageTrackpad { width:24%; }
   .stageKeyboard { width:48%; }
   .stageMouse { width:18%; }
-  .factBar { flex-wrap:wrap; row-gap:12px; }
-  .factBar span { width:50%; padding:0 12px; text-align:center; }
-  .factBar span:nth-child(2) { border-right:0; }
+  .factBar { flex-wrap:nowrap; }
+  .factBar span { width:33.333%; padding:0 8px; text-align:center; }
   .section { padding-top:90px; padding-bottom:90px; }
   .footerInner { flex-direction:column; }
   .footerLinks { flex-direction:column; gap:12px; }
