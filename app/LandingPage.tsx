@@ -12,7 +12,7 @@ const copy = {
     navTrial: "Free trial",
     navSoon: "Coming soon",
     eyebrow: "",
-    title: <>Use your Magic devices <br />on Windows.</>,
+    title: <>Use your Magic devices <br />on Windows</>,
     intro: "One app to connect and manage Magic Trackpad, Magic Mouse, and Magic Keyboard.",
     trial: "Download free trial",
     trialSoon: "Free trial coming soon",
