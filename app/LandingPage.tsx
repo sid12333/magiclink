@@ -58,7 +58,7 @@ const copy = {
     nav: ["功能", "兼容性", "常见问题"],
     navTrial: "免费试用",
     navSoon: "即将开放",
-    eyebrow: "为 Windows 10 与 11 打造",
+    eyebrow: "",
     title: <>在 Windows 上使用<br />Magic 设备</>,
     intro: "一个 App，连接和管理 Magic Trackpad、Magic Mouse 与 Magic Keyboard。",
     trial: "下载免费试用版",
@@ -124,7 +124,7 @@ export default function LandingPage({ language }: { language: Language }) {
       </nav>
 
       <section className="hero shell" id="top">
-        <p className="eyebrow">{c.eyebrow}</p>
+        {c.eyebrow && <p className="eyebrow">{c.eyebrow}</p>}
         <h1>{c.title}</h1>
         <p className="lede">{c.intro}</p>
         <div className="heroActions">
