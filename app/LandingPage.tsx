@@ -88,7 +88,7 @@ const copy = {
     checkoutNote: "首个正式签名版本发布后开放购买。",
     promoNote: "首个正式签名版本发布后开放试用和购买。",
     faqLabel: "常见问题",
-    faqTitle: "购买前需要知道的事。",
+    faqTitle: "购买前须知",
     faqs: [
       ["购买前可以试用吗？", "可以。请先通过试用确认你的设备、系统和驱动兼容性。"],
       ["断网后还能使用吗？", "设备使用和核心设置在本地运行；许可证激活与检查更新可能需要联网。"],
@@ -145,7 +145,7 @@ export default function LandingPage({ language }: { language: Language }) {
           {c.features.map(([title, body], index) => (
             <article className="featureCard" key={title}>
               <div className={`featureVisual visual${index + 1}`} aria-hidden="true">
-                {index === 0 && <img className="featureProduct trackpadSettings" src="/products/trackpad-settings.png" alt="" />}
+                {index === 0 && <img className="featureProduct trackpadSettings" src="/products/trackpad-settings.png?v=2" alt="" />}
                 {index === 1 && <><img className="featureProduct mouseProduct" src="/products/mouse-top.jpg" alt="" /><div className="connectionCard"><b>{isZh ? "蓝牙已连接 / 有线连接" : "Bluetooth connected"}</b></div></>}
                 {index === 2 && <><DeviceRow name="Magic Trackpad" image="/products/trackpad-top.jpg" /><DeviceRow name="Magic Mouse" image="/products/mouse-top.jpg" /><DeviceRow name="Magic Keyboard" image="/products/keyboard-front.jpg" /></>}
               </div>
