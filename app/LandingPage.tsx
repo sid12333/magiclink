@@ -60,7 +60,7 @@ const copy = {
     navSoon: "即将开放",
     eyebrow: "",
     title: <>在 Windows 上使用<br />Magic 设备</>,
-    intro: "一个 App，连接和管理 Magic Trackpad、Magic Mouse 与 Magic Keyboard。",
+    intro: "一个 App，连接和管理 Magic Trackpad、Magic Mouse 与 Magic Keyboard",
     trial: "下载免费试用版",
     trialSoon: "试用版即将开放",
     purchase: "购买许可证",
@@ -126,7 +126,7 @@ export default function LandingPage({ language }: { language: Language }) {
       <section className="hero shell" id="top">
         {c.eyebrow && <p className="eyebrow">{c.eyebrow}</p>}
         <h1>{c.title}</h1>
-        <p className="lede">{c.intro}</p>
+        <p className={`lede${isZh ? " zhLede" : ""}`}>{c.intro}</p>
         <div className="heroActions">
           {hasDownload
             ? <a className="button primary" href={links.download}>{c.trial}</a>
