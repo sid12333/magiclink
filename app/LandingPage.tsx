@@ -148,9 +148,9 @@ export default function LandingPage({ language }: { language: Language }) {
           {c.features.map(([title, body], index) => (
             <article className="featureCard" key={title}>
               <div className={`featureVisual visual${index + 1}`} aria-hidden="true">
-                {index === 0 && <><div className="gesturePad"><i /><i /></div><div className="gestureLine" /></>}
-                {index === 1 && <><div className="statusDot" /><b>{isZh ? "蓝牙已连接" : "Bluetooth connected"}</b><span>Magic Trackpad · 92%</span></>}
-                {index === 2 && <><DeviceRow name="Magic Trackpad" /><DeviceRow name="Magic Mouse" /><DeviceRow name="Magic Keyboard" /></>}
+                {index === 0 && <><img className="featureProduct trackpadProduct" src="/products/trackpad-angle.jpg" alt="" /><div className="gesturePoints"><i /><i /></div></>}
+                {index === 1 && <><img className="featureProduct mouseProduct" src="/products/mouse-top.jpg" alt="" /><div className="connectionCard"><div className="statusDot" /><b>{isZh ? "蓝牙已连接" : "Bluetooth connected"}</b><span>Magic Mouse · 92%</span></div></>}
+                {index === 2 && <><DeviceRow name="Magic Trackpad" image="/products/trackpad-top.jpg" /><DeviceRow name="Magic Mouse" image="/products/mouse-top.jpg" /><DeviceRow name="Magic Keyboard" image="/products/keyboard-front.jpg" /></>}
               </div>
               <h3>{title}</h3>
               <p>{body}</p>
@@ -212,9 +212,15 @@ export default function LandingPage({ language }: { language: Language }) {
 }
 
 function DeviceStage() {
-  return <div className="deviceStage" aria-label="Magic Trackpad, Magic Keyboard, and Magic Mouse"><div className="trackpad" /><div className="keyboard"><i /><i /><i /></div><div className="mouse"><i /></div></div>;
+  return (
+    <div className="deviceStage" aria-label="Magic Trackpad, Magic Keyboard, and Magic Mouse">
+      <img className="stageProduct stageTrackpad" src="/products/trackpad-angle.jpg" alt="Magic Trackpad" fetchPriority="high" />
+      <img className="stageProduct stageKeyboard" src="/products/keyboard-angle.jpg" alt="Magic Keyboard" fetchPriority="high" />
+      <img className="stageProduct stageMouse" src="/products/mouse-side.jpg" alt="Magic Mouse" fetchPriority="high" />
+    </div>
+  );
 }
 
-function DeviceRow({ name }: { name: string }) {
-  return <div className="deviceRow"><i /><span>{name}</span><b>●</b></div>;
+function DeviceRow({ name, image }: { name: string; image: string }) {
+  return <div className="deviceRow"><img src={image} alt="" /><span>{name}</span><b>●</b></div>;
 }
