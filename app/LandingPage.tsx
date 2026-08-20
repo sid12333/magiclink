@@ -19,11 +19,11 @@ const copy = {
     purchase: "Buy license",
     licenseDetails: "License details",
     purchaseSoon: "Purchase coming soon",
-    tryFirst: "Free for 30 days. Check compatibility before you buy.",
+    tryFirst: "Free for 30 days",
     facts: ["Windows 10 & 11", "64-bit", "Wired + Bluetooth"],
     featureLabel: "Why Magic Link",
     features: [
-      ["Full Trackpad controls", "Tune tracking, clicking, scrolling, zooming, and multi-finger gestures from one clean screen."],
+      ["Full Trackpad controls", "Tune tracking, clicking, scrolling, zooming, and multi-finger gestures in one app."],
       ["A steadier connection", "See how your device is connected and repair connection issues."],
       ["One app for all three", "Discover and manage Magic Trackpad, Magic Mouse, and Magic Keyboard in one place."],
     ],
