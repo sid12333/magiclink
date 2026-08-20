@@ -31,9 +31,9 @@ h1 { margin:0 auto; max-width:940px; font-size:clamp(52px,7vw,88px); line-height
 .microcopy,.checkoutNote { color:#919196; font-size:12px; margin:14px 0 0; }
 .deviceStage { position:relative; height:390px; margin-top:74px; border:1px solid var(--line); border-radius:24px; background:radial-gradient(circle at 50% 45%,#fff 0,#f7f7f8 100%); overflow:hidden; }
 .stageProduct { position:absolute; display:block; height:auto; mix-blend-mode:multiply; pointer-events:none; }
-.stageTrackpad { left:-4%; top:-21%; width:47%; }
+.stageTrackpad { left:0; top:-18%; width:44%; }
 .stageKeyboard { left:23%; top:-12%; width:57%; z-index:2; }
-.stageMouse { right:-1%; top:-18%; width:36%; }
+.stageMouse { right:0; top:-16%; width:34%; }
 .factBar { min-height:78px; padding:18px 24px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:center; gap:0; color:var(--muted); font-size:13px; }
 .factBar span { padding:0 28px; border-right:1px solid var(--line); }
 .factBar span:last-child { border-right:0; }
@@ -49,7 +49,7 @@ h1 { margin:0 auto; max-width:940px; font-size:clamp(52px,7vw,88px); line-height
 .featureCard p { margin:0 2px; color:var(--muted); font-size:15px; line-height:1.65; }
 .featureVisual { position:relative; height:300px; padding:28px; overflow:hidden; border:1px solid #ededee; border-radius:18px; background:linear-gradient(145deg,#fff,var(--soft)); }
 .featureProduct { position:absolute; display:block; mix-blend-mode:multiply; }
-.trackpadProduct { width:155%; left:50%; top:48%; transform:translate(-50%,-50%); }
+.trackpadProduct { width:112%; left:50%; top:48%; transform:translate(-50%,-50%); }
 .gesturePoints { position:absolute; left:50%; top:50%; width:74px; height:46px; transform:translate(-50%,-50%); }
 .gesturePoints i { position:absolute; width:18px; height:18px; border-radius:50%; background:var(--blue); box-shadow:0 0 0 8px rgba(20,115,230,.1); }
 .gesturePoints i:first-child { left:5px; bottom:4px; }
@@ -101,9 +101,9 @@ footer { padding:62px 0 34px; background:#111214; color:#f7f7f8; }
   .heroActions,.buyActions { flex-direction:column; align-items:stretch; }
   .button { width:100%; }
   .deviceStage { height:245px; margin-top:58px; border-radius:18px; }
-  .stageTrackpad { left:-11%; top:-7%; width:56%; }
+  .stageTrackpad { left:-2%; top:-3%; width:50%; }
   .stageKeyboard { left:14%; top:5%; width:76%; }
-  .stageMouse { right:-9%; top:-5%; width:46%; }
+  .stageMouse { right:-2%; top:-2%; width:42%; }
   .factBar { flex-wrap:wrap; row-gap:12px; }
   .factBar span { width:50%; padding:0 12px; text-align:center; }
   .factBar span:nth-child(2) { border-right:0; }
