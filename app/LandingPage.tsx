@@ -11,28 +11,28 @@ const copy = {
     nav: ["Features", "Compatibility", "FAQ"],
     navTrial: "Free trial",
     navSoon: "Coming soon",
-    eyebrow: "Made for Windows 10 & 11",
+    eyebrow: "",
     title: <>Use your Magic devices <br />on Windows.</>,
-    intro: "Connect and manage Magic Trackpad, Magic Mouse, and Magic Keyboard. Get full gestures and controls for supported Magic Trackpad models.",
+    intro: "One app to connect and manage Magic Trackpad, Magic Mouse, and Magic Keyboard.",
     trial: "Download free trial",
     trialSoon: "Free trial coming soon",
     purchase: "Buy license",
     licenseDetails: "License details",
     purchaseSoon: "Purchase coming soon",
     tryFirst: "Free for 30 days. Check compatibility before you buy.",
-    facts: ["Windows 10 & 11", "64-bit", "USB + Bluetooth"],
+    facts: ["Windows 10 & 11", "64-bit", "Wired + Bluetooth"],
     featureLabel: "Why Magic Link",
     features: [
       ["Full Trackpad controls", "Tune tracking, clicking, scrolling, zooming, and multi-finger gestures from one clean screen."],
-      ["A steadier connection", "See how your device is connected, repair the connection, and export diagnostics when Bluetooth misbehaves."],
+      ["A steadier connection", "See how your device is connected and repair connection issues."],
       ["One app for all three", "Discover and manage Magic Trackpad, Magic Mouse, and Magic Keyboard in one place."],
     ],
     compatibilityLabel: "Compatibility",
     compatibilityTitle: "Check compatibility before you buy.",
     compatibilityBody: "Full drivers and settings are available for supported Magic Trackpad models. Magic Mouse and Magic Keyboard already work with Windows built-in drivers and can be managed in Magic Link. Advanced Magic Link controls are still in development.",
     supported: "Fully supported",
-    supportedValue: "Supported Magic Trackpad models over USB or Bluetooth",
-    system: "System",
+    supportedValue: "Supported Magic Trackpad models over a wired or Bluetooth connection",
+    system: "System requirements",
     systemValue: "Windows 10 or 11, x64",
     developing: "In development",
     developingValue: "Advanced Magic Mouse and Magic Keyboard controls",
@@ -41,10 +41,10 @@ const copy = {
     buyBody: "Download the free trial and make sure your setup works. One license covers every supported Magic Link device on that PC.",
     checkoutNote: "Purchases open with the first production-signed release.",
     promoNote: "The free trial and purchases open with the first production-signed release.",
-    faqLabel: "Questions",
-    faqTitle: "Good to know.",
+    faqLabel: "FAQ",
+    faqTitle: "Before you buy",
     faqs: [
-      ["Can I test it before purchasing?", "Yes. The trial is designed so you can confirm device and driver compatibility first."],
+      ["Can I try it before buying?", "Yes. The 30-day free trial lets you test device, system, and driver compatibility."],
       ["Does it work without an internet connection?", "Core settings and device use are local. License activation and update checks may require a connection."],
       ["Do Magic Mouse and Magic Keyboard work now?", "Yes. Windows built-in drivers provide basic use. Magic Link can discover and manage them, while advanced controls are still in development."],
       ["Is Magic Link made by Apple?", "No. Magic Link is an independent Windows utility and is not affiliated with or endorsed by Apple."],
@@ -145,8 +145,8 @@ export default function LandingPage({ language }: { language: Language }) {
           {c.features.map(([title, body], index) => (
             <article className="featureCard" key={title}>
               <div className={`featureVisual visual${index + 1}`} aria-hidden="true">
-                {index === 0 && <img className="featureProduct trackpadSettings" src="/products/trackpad-settings.png?v=2" alt="" />}
-                {index === 1 && <><img className="featureProduct mouseProduct" src="/products/mouse-top.jpg" alt="" /><div className="connectionCard"><b>{isZh ? "蓝牙已连接 / 有线连接" : "Bluetooth connected"}</b></div></>}
+                {index === 0 && <img className="featureProduct trackpadSettings" src={isZh ? "/products/trackpad-settings.png?v=2" : "/products/trackpad-settings-en.png"} alt="" />}
+                {index === 1 && <><img className="featureProduct mouseProduct" src="/products/mouse-top.jpg" alt="" /><div className="connectionCard"><b>{isZh ? "蓝牙已连接 / 有线连接" : "Bluetooth / Wired connection"}</b></div></>}
                 {index === 2 && <><DeviceRow name="Magic Trackpad" image="/products/trackpad-top.jpg" /><DeviceRow name="Magic Mouse" image="/products/mouse-top.jpg" /><DeviceRow name="Magic Keyboard" image="/products/keyboard-front.jpg" /></>}
               </div>
               <h3>{title}</h3>

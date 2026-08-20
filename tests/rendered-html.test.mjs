@@ -19,6 +19,8 @@ test("renders the English landing page", async () => {
   assert.match(html, /Use your Magic devices/);
   assert.match(html, /Free trial coming soon/);
   assert.match(html, /Windows built-in drivers/);
+  assert.match(html, /trackpad-settings-en\.png/);
+  assert.match(html, /Before you buy/);
   assert.doesNotMatch(html, /codex-preview/);
 });
 
@@ -29,4 +31,6 @@ test("renders the Chinese landing page", async () => {
   assert.match(html, /在 Windows 上使用/);
   assert.match(html, /试用版即将上线/);
   assert.match(html, /Windows 自带驱动/);
+  assert.match(html, /trackpad-settings\.png\?v=2/);
+  assert.match(html, /购买前须知/);
 });
