@@ -10,8 +10,8 @@ export async function magicLinkMetadata(language: "en" | "zh"): Promise<Metadata
     ? "Magic Link — 让 Apple 输入设备自然融入 Windows"
     : "Magic Link — Apple input devices on Windows";
   const description = language === "zh"
-    ? "在 Windows 上统一管理 Magic Trackpad、Magic Mouse 与 Magic Keyboard。"
-    : "Native gestures, clearer controls, and reliable connections for Apple input devices on Windows.";
+    ? "在 Windows 上连接和管理 Magic Trackpad、Magic Mouse 与 Magic Keyboard，并为受支持的 Magic Trackpad 提供完整控制。"
+    : "Connect and manage Magic Trackpad, Magic Mouse, and Magic Keyboard on Windows, with full controls for supported Magic Trackpad models.";
 
   return {
     title,

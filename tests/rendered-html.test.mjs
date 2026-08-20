@@ -16,7 +16,9 @@ test("renders the English landing page", async () => {
   const html = await response.text();
   assert.equal(response.status, 200);
   assert.match(html, /Magic Link/);
-  assert.match(html, /Apple input devices/);
+  assert.match(html, /Use your Magic devices/);
+  assert.match(html, /Free trial coming soon/);
+  assert.match(html, /Windows built-in drivers/);
   assert.doesNotMatch(html, /codex-preview/);
 });
 
@@ -24,6 +26,7 @@ test("renders the Chinese landing page", async () => {
   const response = await render("/zh-cn");
   const html = await response.text();
   assert.equal(response.status, 200);
-  assert.match(html, /让 Apple 输入设备/);
-  assert.match(html, /购买许可证/);
+  assert.match(html, /在 Windows 上使用/);
+  assert.match(html, /试用版即将开放/);
+  assert.match(html, /Windows 自带驱动/);
 });
