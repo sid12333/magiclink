@@ -29,11 +29,11 @@ h1 { margin:0 auto; max-width:940px; font-size:clamp(52px,7vw,88px); line-height
 .blue:hover { background:#075fc3; transform:translateY(-1px); }
 .disabled { color:#8d8d92; border-color:#d8d8dc; background:#f1f1f3; cursor:not-allowed; }
 .microcopy,.checkoutNote { color:#919196; font-size:12px; margin:14px 0 0; }
-.deviceStage { position:relative; height:390px; margin-top:74px; border:1px solid var(--line); border-radius:24px; background:radial-gradient(circle at 50% 45%,#fff 0,#f7f7f8 100%); overflow:hidden; }
-.stageProduct { position:absolute; display:block; height:auto; mix-blend-mode:multiply; pointer-events:none; }
-.stageTrackpad { left:0; top:-18%; width:44%; }
-.stageKeyboard { left:23%; top:-12%; width:57%; z-index:2; }
-.stageMouse { right:0; top:-16%; width:34%; }
+.deviceStage { height:390px; margin-top:74px; padding:0 2%; border:1px solid var(--line); border-radius:24px; background:radial-gradient(circle at 50% 45%,#fff 0,#f7f7f8 100%); display:flex; align-items:center; justify-content:center; gap:1%; overflow:hidden; }
+.stageProduct { position:relative; display:block; flex:none; height:auto; mix-blend-mode:multiply; pointer-events:none; }
+.stageTrackpad { width:18%; }
+.stageKeyboard { width:48%; }
+.stageMouse { width:28%; }
 .factBar { min-height:78px; padding:18px 24px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:center; gap:0; color:var(--muted); font-size:13px; }
 .factBar span { padding:0 28px; border-right:1px solid var(--line); }
 .factBar span:last-child { border-right:0; }
@@ -101,9 +101,9 @@ footer { padding:62px 0 34px; background:#111214; color:#f7f7f8; }
   .heroActions,.buyActions { flex-direction:column; align-items:stretch; }
   .button { width:100%; }
   .deviceStage { height:245px; margin-top:58px; border-radius:18px; }
-  .stageTrackpad { left:-2%; top:-3%; width:50%; }
-  .stageKeyboard { left:14%; top:5%; width:76%; }
-  .stageMouse { right:-2%; top:-2%; width:42%; }
+  .stageTrackpad { width:19%; }
+  .stageKeyboard { width:49%; }
+  .stageMouse { width:28%; }
   .factBar { flex-wrap:wrap; row-gap:12px; }
   .factBar span { width:50%; padding:0 12px; text-align:center; }
   .factBar span:nth-child(2) { border-right:0; }

@@ -214,8 +214,8 @@ export default function LandingPage({ language }: { language: Language }) {
 function DeviceStage() {
   return (
     <div className="deviceStage" aria-label="Magic Trackpad, Magic Keyboard, and Magic Mouse">
-      <img className="stageProduct stageTrackpad" src="/products/trackpad-angle.jpg" alt="Magic Trackpad" fetchPriority="high" />
-      <img className="stageProduct stageKeyboard" src="/products/keyboard-angle.jpg" alt="Magic Keyboard" fetchPriority="high" />
+      <img className="stageProduct stageTrackpad" src="/products/trackpad-top.jpg" alt="Magic Trackpad" fetchPriority="high" />
+      <img className="stageProduct stageKeyboard" src="/products/keyboard-front.jpg" alt="Magic Keyboard" fetchPriority="high" />
       <img className="stageProduct stageMouse" src="/products/mouse-side.jpg" alt="Magic Mouse" fetchPriority="high" />
     </div>
   );
