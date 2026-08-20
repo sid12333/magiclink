@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://magic-link.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://magic-link.app/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://magic-link.app/zh-cn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://magic-link.app/" />
+  </url>
+  <url>
+    <loc>https://magic-link.app/zh-cn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://magic-link.app/" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://magic-link.app/zh-cn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://magic-link.app/" />
+  </url>
+</urlset>
