@@ -1,8 +1,8 @@
 type Language = "en" | "zh";
 
 const links = {
-  download: process.env.NEXT_PUBLIC_DOWNLOAD_URL || "",
-  checkout: process.env.NEXT_PUBLIC_PADDLE_CHECKOUT_URL || "",
+  download: import.meta.env.VITE_DOWNLOAD_URL || "",
+  checkout: import.meta.env.VITE_PADDLE_CHECKOUT_URL || "",
   github: "https://github.com/sid12333/magic-link-windows",
 };
 

@@ -1,36 +1,36 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-
-async function render(pathname) {
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
-  return worker.fetch(new Request(`http://localhost${pathname}`, { headers: { accept: "text/html" } }), {
-    ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
-  }, { waitUntil() {}, passThroughOnException() {} });
+async function builtFile(path) {
+  return readFile(new URL(`../dist/${path}`, import.meta.url), "utf8");
 }
 
-test("renders the English landing page", async () => {
-  const response = await render("/");
-  const html = await response.text();
-  assert.equal(response.status, 200);
-  assert.match(html, /Magic Link/);
-  assert.match(html, /Use your Magic devices/);
-  assert.match(html, /Free trial coming soon/);
-  assert.match(html, /Windows built-in drivers/);
-  assert.match(html, /trackpad-settings-en\.png/);
-  assert.match(html, /Before you buy/);
-  assert.doesNotMatch(html, /codex-preview/);
+test("builds the English landing page with search metadata", async () => {
+  const html = await builtFile("index.html");
+  assert.match(html, /<html lang="en">/);
+  assert.match(html, /Magic Link — Apple input devices on Windows/);
+  assert.match(html, /rel="canonical" href="https:\/\/magic-link\.app\/"/);
+  assert.match(html, /hreflang="zh-CN" href="https:\/\/magic-link\.app\/zh-cn"/);
+  assert.match(html, /id="root"/);
 });
 
-test("renders the Chinese landing page", async () => {
-  const response = await render("/zh-cn");
-  const html = await response.text();
-  assert.equal(response.status, 200);
-  assert.match(html, /在 Windows 上使用/);
-  assert.match(html, /试用版即将上线/);
-  assert.match(html, /Windows 自带驱动/);
-  assert.match(html, /trackpad-settings\.png\?v=2/);
-  assert.match(html, /购买前须知/);
+test("builds the Chinese landing page with search metadata", async () => {
+  const html = await builtFile("zh-cn.html");
+  assert.match(html, /<html lang="zh-CN">/);
+  assert.match(html, /Magic Link — 让 Apple 输入设备自然融入 Windows/);
+  assert.match(html, /rel="canonical" href="https:\/\/magic-link\.app\/zh-cn"/);
+  assert.match(html, /hreflang="en" href="https:\/\/magic-link\.app\/"/);
+  assert.match(html, /id="root"/);
+});
+
+test("copies crawler and routing files into the deployment", async () => {
+  const [robots, sitemap, redirects] = await Promise.all([
+    builtFile("robots.txt"),
+    builtFile("sitemap.xml"),
+    builtFile("_redirects"),
+  ]);
+  assert.match(robots, /Sitemap: https:\/\/magic-link\.app\/sitemap\.xml/);
+  assert.match(sitemap, /https:\/\/magic-link\.app\/zh-cn/);
+  assert.match(redirects, /\/zh-cn\s+\/zh-cn\.html\s+200/);
 });
