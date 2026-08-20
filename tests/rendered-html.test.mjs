@@ -27,6 +27,6 @@ test("renders the Chinese landing page", async () => {
   const html = await response.text();
   assert.equal(response.status, 200);
   assert.match(html, /在 Windows 上使用/);
-  assert.match(html, /试用版即将开放/);
+  assert.match(html, /试用版即将上线/);
   assert.match(html, /Windows 自带驱动/);
 });
