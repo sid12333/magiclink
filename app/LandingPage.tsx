@@ -59,7 +59,7 @@ const copy = {
     navTrial: "免费试用",
     navSoon: "即将开放",
     eyebrow: "为 Windows 10 与 11 打造",
-    title: <>在 Windows 上使用<br />你的 Magic 设备。</>,
+    title: <>在 Windows 上使用<br />Magic 设备</>,
     intro: "连接和管理 Magic Trackpad、Magic Mouse 与 Magic Keyboard，并为受支持的 Magic Trackpad 提供完整手势和控制。",
     trial: "下载免费试用版",
     trialSoon: "试用版即将开放",
