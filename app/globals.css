@@ -31,9 +31,9 @@ h1 { margin:0 auto; max-width:940px; font-size:clamp(52px,7vw,88px); line-height
 .microcopy,.checkoutNote { color:#919196; font-size:12px; margin:14px 0 0; }
 .deviceStage { height:390px; margin-top:74px; padding:0 2%; border:1px solid var(--line); border-radius:24px; background:radial-gradient(circle at 50% 45%,#fff 0,#f7f7f8 100%); display:flex; align-items:center; justify-content:center; gap:1%; overflow:hidden; }
 .stageProduct { position:relative; display:block; flex:none; height:auto; mix-blend-mode:multiply; pointer-events:none; }
-.stageTrackpad { width:18%; }
+.stageTrackpad { width:24%; }
 .stageKeyboard { width:48%; }
-.stageMouse { width:28%; }
+.stageMouse { width:18%; }
 .factBar { min-height:78px; padding:18px 24px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:center; gap:0; color:var(--muted); font-size:13px; }
 .factBar span { padding:0 28px; border-right:1px solid var(--line); }
 .factBar span:last-child { border-right:0; }
@@ -101,9 +101,9 @@ footer { padding:62px 0 34px; background:#111214; color:#f7f7f8; }
   .heroActions,.buyActions { flex-direction:column; align-items:stretch; }
   .button { width:100%; }
   .deviceStage { height:245px; margin-top:58px; border-radius:18px; }
-  .stageTrackpad { width:19%; }
-  .stageKeyboard { width:49%; }
-  .stageMouse { width:28%; }
+  .stageTrackpad { width:24%; }
+  .stageKeyboard { width:48%; }
+  .stageMouse { width:18%; }
   .factBar { flex-wrap:wrap; row-gap:12px; }
   .factBar span { width:50%; padding:0 12px; text-align:center; }
   .factBar span:nth-child(2) { border-right:0; }
