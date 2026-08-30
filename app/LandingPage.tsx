@@ -3,7 +3,7 @@ type Language = "en" | "zh";
 const links = {
   download: import.meta.env.VITE_DOWNLOAD_URL || "",
   checkout: import.meta.env.VITE_PADDLE_CHECKOUT_URL || "",
-  github: "https://github.com/sid12333/magic-link-windows",
+  github: "https://github.com/sid12333/magiclink",
 };
 
 const copy = {
@@ -44,6 +44,7 @@ const copy = {
     faqLabel: "FAQ",
     faqTitle: "Before you buy",
     faqs: [
+      ["What is Magic Link for Windows?", "Magic Link is an independent app for Apple input devices on Windows 10 and 11. It provides controls for supported Magic Trackpad models and manages Magic Mouse and Magic Keyboard. Advanced Mouse and Keyboard controls are still in development."],
       ["Can I try it before buying?", "Yes. The 30-day free trial lets you test device, system, and driver compatibility."],
       ["Does it work without an internet connection?", "Core settings and device use are local. License activation and update checks may require a connection."],
       ["Do Magic Mouse and Magic Keyboard work now?", "Yes. Windows built-in drivers provide basic use. Magic Link can discover and manage them, while advanced controls are still in development."],
@@ -90,6 +91,7 @@ const copy = {
     faqLabel: "常见问题",
     faqTitle: "购买前须知",
     faqs: [
+      ["Magic Link 是什么？", "Magic Link 是用于 Windows 10 和 11 的独立 Apple 输入设备软件，提供受支持的 Magic Trackpad 触控板控制，并管理 Magic Mouse 鼠标和 Magic Keyboard 键盘。鼠标与键盘高级控制仍在开发。"],
       ["购买前可以试用吗？", "可以。30天的免费试用期。以便您测试设备、系统和驱动兼容性。"],
       ["断网后还能使用吗？", "设备使用和核心设置在本地运行；许可证激活与检查更新可能需要联网。"],
       ["Magic Mouse 和 Magic Keyboard 现在能用吗？", "可以。Windows 自带驱动支持基本使用，Magic Link 可以识别和管理设备，高级控制仍在开发。"],
