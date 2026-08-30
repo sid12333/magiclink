@@ -84,7 +84,7 @@ test("copies crawler files into the deployment", async () => {
 });
 
 test("does not rewrite the Chinese clean URL back to its HTML file", async () => {
-  // Pages already serves /zh-cn from zh-cn.html and redirects .html to /zh-cn.
+  // Workers Static Assets serves /zh-cn from zh-cn.html and redirects .html to /zh-cn.
   // Rewriting the clean URL to .html would create a redirect back to itself.
   const redirects = await builtFile("_redirects").catch((error) => {
     if (error.code === "ENOENT") return "";
@@ -93,7 +93,18 @@ test("does not rewrite the Chinese clean URL back to its HTML file", async () =>
   assert.doesNotMatch(redirects, /^\s*\/zh-cn\/?\s+\/zh-cn\.html(?:\s|$)/m);
 });
 
-test("ships a standalone 404 page to disable Cloudflare's homepage fallback", async () => {
+test("configures Workers to serve real 404 responses without changing clean URLs", async () => {
+  const config = JSON.parse(await readFile(new URL("../wrangler.json", import.meta.url), "utf8"));
+  assert.equal(config.name, "magiclink");
+  assert.equal(config.compatibility_date, "2026-08-28");
+  assert.equal(config.assets.directory, "./dist");
+  assert.equal(config.assets.not_found_handling, "404-page");
+  assert.equal(config.assets.html_handling, "auto-trailing-slash");
+  assert.equal(config.main, undefined);
+  await access(new URL(`../${config.assets.directory}/404.html`, import.meta.url));
+});
+
+test("ships a standalone 404 page for Workers Static Assets", async () => {
   const html = await builtFile("404.html");
   assert.match(html, /<title>Page not found — Magic Link<\/title>/);
   assert.match(html, /name="robots" content="noindex"/);

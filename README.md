@@ -13,12 +13,13 @@ Magic Link is not affiliated with or endorsed by Apple.
 
 ## Website development
 
-Minimal bilingual product website for Magic Link, deployed as a static site on Cloudflare Pages.
+Minimal bilingual product website for Magic Link, deployed with Cloudflare Workers Static Assets.
 
 - `/` — global English page
 - `/zh-cn` — Simplified Chinese page
 - `/third-party-notices` — existing third-party notices, hosted locally
-- `public/404.html` — real not-found page for Cloudflare Pages; keep this file to prevent unknown URLs from serving the homepage
+- `public/404.html` — not-found page, served with HTTP 404 when no asset matches
+- `wrangler.json` — Workers deployment configuration; keep `assets.not_found_handling` set to `404-page`, not `single-page-application`
 - `VITE_DOWNLOAD_URL` — latest signed installer or GitHub Release
 - `VITE_PADDLE_CHECKOUT_URL` — Paddle checkout URL
 
@@ -28,12 +29,17 @@ npm run dev
 npm run build
 ```
 
-Cloudflare Pages build settings:
+Cloudflare Workers build settings:
 
 - Build command: `npm run build`
-- Build output directory: `dist`
+- Deploy command: `npx wrangler deploy`
+- Version command: `npx wrangler versions upload`
+- Root directory: `/` (repository root)
+- Static asset directory: `./dist` (set in `wrangler.json`)
 - Production branch: `main`
 - Node.js: `22`
+
+The Worker name is `magiclink`, matching the existing Cloudflare project. No Worker script or application backend is deployed. Custom domains remain managed in the Cloudflare dashboard. The compatibility date is preserved from the existing deployment.
 
 The website contains no application source code, license private keys, or activation tools.
 
