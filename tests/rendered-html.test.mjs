@@ -26,13 +26,21 @@ test("builds the Chinese landing page with search metadata", async () => {
   assert.match(html, /试用版即将上线/);
 });
 
-test("copies crawler and routing files into the deployment", async () => {
-  const [robots, sitemap, redirects] = await Promise.all([
+test("copies crawler files into the deployment", async () => {
+  const [robots, sitemap] = await Promise.all([
     builtFile("robots.txt"),
     builtFile("sitemap.xml"),
-    builtFile("_redirects"),
   ]);
   assert.match(robots, /Sitemap: https:\/\/magic-link\.app\/sitemap\.xml/);
   assert.match(sitemap, /https:\/\/magic-link\.app\/zh-cn/);
-  assert.match(redirects, /\/zh-cn\s+\/zh-cn\.html\s+200/);
+});
+
+test("does not rewrite the Chinese clean URL back to its HTML file", async () => {
+  // Pages already serves /zh-cn from zh-cn.html and redirects .html to /zh-cn.
+  // Rewriting the clean URL to .html would create a redirect back to itself.
+  const redirects = await builtFile("_redirects").catch((error) => {
+    if (error.code === "ENOENT") return "";
+    throw error;
+  });
+  assert.doesNotMatch(redirects, /^\s*\/zh-cn\/?\s+\/zh-cn\.html(?:\s|$)/m);
 });
