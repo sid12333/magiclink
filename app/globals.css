@@ -27,6 +27,8 @@ h1 { margin:0 auto; max-width:940px; font-size:clamp(52px,7vw,88px); line-height
 .blue:hover { background:#075fc3; transform:translateY(-1px); }
 .disabled { color:#8d8d92; border-color:#d8d8dc; background:#f1f1f3; cursor:not-allowed; }
 .microcopy,.checkoutNote { color:#919196; font-size:12px; margin:14px 0 0; }
+.releaseFollow { margin:14px 0 0; font-size:13px; }
+.releaseFollow a { color:var(--blue); text-decoration:underline; text-underline-offset:3px; }
 .deviceStage { height:390px; margin-top:74px; padding:0 2%; border:1px solid var(--line); border-radius:24px; background:radial-gradient(circle at 50% 45%,#fff 0,#f7f7f8 100%); display:flex; align-items:center; justify-content:center; gap:1%; overflow:hidden; }
 .stageProduct { position:relative; display:block; flex:none; height:auto; mix-blend-mode:multiply; pointer-events:none; }
 .stageTrackpad { width:24%; margin-right:5%; }

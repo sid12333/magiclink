@@ -134,6 +134,7 @@ export default function LandingPage({ language }: { language: Language }) {
           <a className="button secondary" href="#buy">{hasCheckout ? c.purchase : c.licenseDetails}</a>
         </div>
         <p className="microcopy">{c.tryFirst}</p>
+        {!hasDownload && <p className="releaseFollow"><a href={links.github}>{isZh ? "在 GitHub 关注发布动态" : "Follow release updates on GitHub"}</a></p>}
         <DeviceStage />
       </section>
 
@@ -147,8 +148,8 @@ export default function LandingPage({ language }: { language: Language }) {
           {c.features.map(([title, body], index) => (
             <article className="featureCard" key={title}>
               <div className={`featureVisual visual${index + 1}`} aria-hidden="true">
-                {index === 0 && <img className="featureProduct trackpadSettings" src={isZh ? "/products/trackpad-settings.png?v=2" : "/products/trackpad-settings-en.png?v=2"} alt="" />}
-                {index === 1 && <><img className="featureProduct mouseProduct" src="/products/mouse-top.jpg" alt="" /><div className="connectionCard"><b>{isZh ? "蓝牙已连接 / 有线连接" : "Bluetooth / Wired connection"}</b></div></>}
+                {index === 0 && <img className="featureProduct trackpadSettings" src={isZh ? "/products/trackpad-settings.png?v=2" : "/products/trackpad-settings-en.png?v=2"} width={isZh ? 713 : 702} height={isZh ? 612 : 607} loading="lazy" decoding="async" alt="" />}
+                {index === 1 && <><img className="featureProduct mouseProduct" src="/products/mouse-top.jpg" width="1144" height="1144" loading="lazy" decoding="async" alt="" /><div className="connectionCard"><b>{isZh ? "蓝牙已连接 / 有线连接" : "Bluetooth / Wired connection"}</b></div></>}
                 {index === 2 && <><DeviceRow name="Magic Trackpad" image="/products/trackpad-top.jpg" /><DeviceRow name="Magic Mouse" image="/products/mouse-top.jpg" /><DeviceRow name="Magic Keyboard" image="/products/keyboard-front.jpg" /></>}
               </div>
               <h3>{title}</h3>
@@ -202,7 +203,7 @@ export default function LandingPage({ language }: { language: Language }) {
       <footer>
         <div className="shell footerInner">
           <div><a className="brand" href="#top">Magic Link</a><p>{c.notice}</p></div>
-          <div className="footerLinks"><a href={links.github}>{c.github}</a><a href="https://github.com/sid12333/magic-link-windows/blob/main/THIRD_PARTY_NOTICES.md">{isZh ? "第三方声明" : "Third-party notices"}</a></div>
+          <div className="footerLinks"><a href={links.github}>{c.github}</a><a href="/third-party-notices">{isZh ? "第三方声明" : "Third-party notices"}</a></div>
         </div>
         <p className="legal shell">Magic Link is independent software and is not affiliated with or endorsed by Apple Inc. Apple, Magic Trackpad, Magic Mouse, and Magic Keyboard are trademarks of Apple Inc.</p>
       </footer>
@@ -213,13 +214,13 @@ export default function LandingPage({ language }: { language: Language }) {
 function DeviceStage() {
   return (
     <div className="deviceStage" aria-label="Magic Trackpad, Magic Keyboard, and Magic Mouse">
-      <img className="stageProduct stageTrackpad" src="/products/trackpad-top.jpg" alt="Magic Trackpad" fetchPriority="high" />
-      <img className="stageProduct stageKeyboard" src="/products/keyboard-front.jpg" alt="Magic Keyboard" fetchPriority="high" />
-      <img className="stageProduct stageMouse" src="/products/mouse-top.jpg" alt="Magic Mouse" fetchPriority="high" />
+      <img className="stageProduct stageTrackpad" src="/products/trackpad-top.jpg" width="2000" height="2000" alt="Magic Trackpad" fetchPriority="high" />
+      <img className="stageProduct stageKeyboard" src="/products/keyboard-front.jpg" width="1144" height="1144" alt="Magic Keyboard" fetchPriority="high" />
+      <img className="stageProduct stageMouse" src="/products/mouse-top.jpg" width="1144" height="1144" alt="Magic Mouse" fetchPriority="high" />
     </div>
   );
 }
 
 function DeviceRow({ name, image }: { name: string; image: string }) {
-  return <div className="deviceRow"><img src={image} alt="" /><span>{name}</span><b>●</b></div>;
+  return <div className="deviceRow"><img src={image} width="40" height="40" loading="lazy" decoding="async" alt="" /><span>{name}</span><b>●</b></div>;
 }

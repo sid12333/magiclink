@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function builtFile(path) {
@@ -91,4 +91,52 @@ test("does not rewrite the Chinese clean URL back to its HTML file", async () =>
     throw error;
   });
   assert.doesNotMatch(redirects, /^\s*\/zh-cn\/?\s+\/zh-cn\.html(?:\s|$)/m);
+});
+
+test("ships a standalone 404 page to disable Cloudflare's homepage fallback", async () => {
+  const html = await builtFile("404.html");
+  assert.match(html, /<title>Page not found — Magic Link<\/title>/);
+  assert.match(html, /name="robots" content="noindex"/);
+  assert.match(html, /href="\/"/);
+  assert.match(html, /href="\/zh-cn"/);
+  assert.doesNotMatch(html, /<script|rel="canonical"/);
+  assert.doesNotMatch(await builtFile("sitemap.xml"), /404/);
+});
+
+test("serves the existing third-party notice locally, without the broken GitHub link", async () => {
+  const notice = await builtFile("third-party-notices.html");
+  assert.match(notice, /GNU General Public License, version 2/);
+  assert.match(notice, /Copyright 2018–2019 Bingxing Wang/);
+  assert.match(notice, /AmtPtpDeviceUsbUm/);
+  assert.match(notice, /AmtPtpDeviceUsbKm/);
+  assert.match(notice, /corresponding source code or a valid written source offer/);
+  assert.match(notice, /Magic Link application/);
+  for (const file of ["index.html", "zh-cn.html"]) {
+    const html = await builtFile(file);
+    assert.match(html, /href="\/third-party-notices"/);
+    assert.doesNotMatch(html, /magic-link-windows\/blob/);
+  }
+});
+
+test("keeps hero images eager, defers secondary images, and ships every referenced asset", async () => {
+  for (const file of ["index.html", "zh-cn.html"]) {
+    const html = await builtFile(file);
+    const images = [...html.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
+    assert.equal(images.length, 8);
+    for (const img of images) {
+      assert.match(img, /width="\d+"/);
+      assert.match(img, /height="\d+"/);
+      if (img.includes("stageProduct")) {
+        assert.match(img, /fetchPriority="high"/i);
+        assert.doesNotMatch(img, /loading="lazy"/);
+      } else {
+        assert.match(img, /loading="lazy"/);
+        assert.match(img, /decoding="async"/);
+      }
+      const src = img.match(/src="([^"]+)"/)[1].split("?")[0];
+      await access(new URL(`../dist${src}`, import.meta.url));
+    }
+    assert.doesNotMatch(html, /<link[^>]+rel="preload"[^>]+trackpad-settings/);
+    assert.match(html, /class="releaseFollow"><a href="https:\/\/github.com\/sid12333\/magiclink"/);
+  }
 });
