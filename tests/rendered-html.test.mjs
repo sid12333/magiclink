@@ -9,23 +9,27 @@ async function builtFile(path) {
 test("builds the English landing page with search metadata", async () => {
   const html = await builtFile("index.html");
   assert.match(html, /<html lang="en">/);
-  assert.match(html, /Magic Link — Magic Trackpad, Mouse &amp; Keyboard for Windows/);
+  assert.match(html, /Magic Trackpad &amp; Mouse &amp; Keyboard for Windows \| Magic Link/);
   assert.match(html, /rel="canonical" href="https:\/\/magic-link\.app\/"/);
   assert.match(html, /hreflang="zh-CN" href="https:\/\/magic-link\.app\/zh-cn"/);
   assert.match(html, /Use your Magic devices/);
   assert.match(html, /Free trial coming soon/);
   assert.match(html, /What is Magic Link for Windows\?/);
+  assert.match(html, /Does Magic Trackpad work with Windows 11\?/);
+  assert.match(html, /Can I use Magic Trackpad gestures on Windows\?/);
 });
 
 test("builds the Chinese landing page with search metadata", async () => {
   const html = await builtFile("zh-cn.html");
   assert.match(html, /<html lang="zh-CN">/);
-  assert.match(html, /Magic Link — Windows 苹果触控板、鼠标与键盘软件/);
+  assert.match(html, /在 Windows 上使用苹果触控板、鼠标和键盘/);
   assert.match(html, /rel="canonical" href="https:\/\/magic-link\.app\/zh-cn"/);
   assert.match(html, /hreflang="en" href="https:\/\/magic-link\.app\/"/);
   assert.match(html, /在 Windows 上使用/);
   assert.match(html, /试用版即将上线/);
   assert.match(html, /Magic Link 是什么？/);
+  assert.match(html, /Magic Trackpad 可以在 Windows 11 上使用吗？/);
+  assert.match(html, /可以在 Windows 上使用 Magic Trackpad 手势吗？/);
 });
 
 for (const [file, language, url] of [
