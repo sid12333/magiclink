@@ -75,7 +75,7 @@ h1 { margin:0 auto; max-width:940px; font-size:clamp(52px,7vw,88px); line-height
 footer { padding:62px 0 34px; background:#111214; color:#f7f7f8; }
 .footerInner { display:flex; justify-content:space-between; gap:40px; }
 .footerInner p { color:#98989e; font-size:13px; }
-.footerLinks { display:flex; gap:24px; color:#c7c7cb; font-size:13px; }
+.footerLinks { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:16px 24px; color:#c7c7cb; font-size:13px; }
 .legal { margin-top:50px; padding-top:24px; border-top:1px solid #33343a; color:#75757b; font-size:11px; line-height:1.6; }
 
 @media (max-width:850px) {
@@ -102,5 +102,5 @@ footer { padding:62px 0 34px; background:#111214; color:#f7f7f8; }
   .factBar span { width:33.333%; padding:0 8px; text-align:center; }
   .section { padding-top:90px; padding-bottom:90px; }
   .footerInner { flex-direction:column; }
-  .footerLinks { flex-direction:column; gap:12px; }
+  .footerLinks { flex-direction:column; align-items:flex-start; gap:12px; }
 }

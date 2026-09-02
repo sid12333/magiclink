@@ -4,6 +4,8 @@ const links = {
   download: import.meta.env.VITE_DOWNLOAD_URL || "",
   checkout: import.meta.env.VITE_PADDLE_CHECKOUT_URL || "",
   github: "https://github.com/sid12333/magiclink",
+  releases: "https://github.com/sid12333/magiclink/releases",
+  issues: "https://github.com/sid12333/magiclink/issues",
 };
 
 const copy = {
@@ -52,6 +54,8 @@ const copy = {
       ["Where do I report a problem?", "Use GitHub Issues and include your Windows version, device model, connection type, and diagnostics."],
     ],
     github: "GitHub",
+    releases: "Releases",
+    support: "Support",
     notice: "Independent software for Apple input devices on Windows.",
   },
   zh: {
@@ -99,6 +103,8 @@ const copy = {
       ["遇到问题在哪里反馈？", "请前往 GitHub Issues，并附上 Windows 版本、设备型号、连接方式和诊断信息。"],
     ],
     github: "前往 GitHub",
+    releases: "版本发布",
+    support: "问题反馈",
     notice: "为 Windows 上的 Apple 输入设备打造的独立软件。",
   },
 };
@@ -134,7 +140,7 @@ export default function LandingPage({ language }: { language: Language }) {
           <a className="button secondary" href="#buy">{hasCheckout ? c.purchase : c.licenseDetails}</a>
         </div>
         <p className="microcopy">{c.tryFirst}</p>
-        {!hasDownload && <p className="releaseFollow"><a href={links.github}>{isZh ? "在 GitHub 关注发布动态" : "Follow release updates on GitHub"}</a></p>}
+        {!hasDownload && <p className="releaseFollow"><a href={links.releases}>{isZh ? "在 GitHub 查看发布动态" : "View release updates on GitHub"}</a></p>}
         <DeviceStage />
       </section>
 
@@ -203,7 +209,7 @@ export default function LandingPage({ language }: { language: Language }) {
       <footer>
         <div className="shell footerInner">
           <div><a className="brand" href="#top">Magic Link</a><p>{c.notice}</p></div>
-          <div className="footerLinks"><a href={links.github}>{c.github}</a><a href="/third-party-notices">{isZh ? "第三方声明" : "Third-party notices"}</a></div>
+          <div className="footerLinks"><a href={links.github}>{c.github}</a><a href={links.releases}>{c.releases}</a><a href={links.issues}>{c.support}</a><a href="/third-party-notices">{isZh ? "第三方声明" : "Third-party notices"}</a></div>
         </div>
         <p className="legal shell">Magic Link is independent software and is not affiliated with or endorsed by Apple Inc. Apple, Magic Trackpad, Magic Mouse, and Magic Keyboard are trademarks of Apple Inc.</p>
       </footer>

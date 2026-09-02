@@ -1,0 +1,76 @@
+name: Bug report
+description: Report a reproducible Magic Link device or application problem
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Magic Link. Do not include activation codes, license files, or personal information.
+  - type: input
+    id: version
+    attributes:
+      label: Magic Link version
+      description: Find this in the app or the GitHub Release name.
+      placeholder: "Example: 1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows version
+      options:
+        - Windows 11
+        - Windows 10
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device model
+      description: Include the exact model or part number if known.
+      placeholder: "Example: Magic Trackpad — model Axxxx"
+    validations:
+      required: true
+  - type: dropdown
+    id: connection
+    attributes:
+      label: Connection type
+      options:
+        - Bluetooth
+        - Wired
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe what you expected and what actually happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Connect the device
+        2. Open Magic Link
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Add non-sensitive diagnostic text or attach a file if available.
+    validations:
+      required: false
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I checked that this report contains no activation code, license file, or personal information.
+          required: true

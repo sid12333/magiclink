@@ -148,6 +148,28 @@ test("keeps hero images eager, defers secondary images, and ships every referenc
       await access(new URL(`../dist${src}`, import.meta.url));
     }
     assert.doesNotMatch(html, /<link[^>]+rel="preload"[^>]+trackpad-settings/);
-    assert.match(html, /class="releaseFollow"><a href="https:\/\/github.com\/sid12333\/magiclink"/);
+    assert.match(html, /class="releaseFollow"><a href="https:\/\/github.com\/sid12333\/magiclink\/releases"/);
+    assert.match(html, /href="https:\/\/github.com\/sid12333\/magiclink\/issues"/);
   }
+});
+
+test("GitHub entry points connect product discovery, releases, support, and the official site", async () => {
+  const [readme, issueForm, issueConfig] = await Promise.all([
+    readFile(new URL("../README.md", import.meta.url), "utf8"),
+    readFile(new URL("../.github/ISSUE_TEMPLATE/bug-report.yml", import.meta.url), "utf8"),
+    readFile(new URL("../.github/ISSUE_TEMPLATE/config.yml", import.meta.url), "utf8"),
+  ]);
+  assert.match(readme, /https:\/\/magic-link\.app\//);
+  assert.match(readme, /https:\/\/magic-link\.app\/zh-cn/);
+  assert.match(readme, /https:\/\/github\.com\/sid12333\/magiclink\/releases/);
+  assert.match(readme, /https:\/\/github\.com\/sid12333\/magiclink\/issues/);
+  assert.match(readme, /There is no public download yet/);
+  assert.match(readme, /production-signed installer/);
+  assert.match(issueForm, /label: Magic Link version/);
+  assert.match(issueForm, /label: Windows version/);
+  assert.match(issueForm, /label: Device model/);
+  assert.match(issueForm, /label: Connection type/);
+  assert.match(issueForm, /contains no activation code, license file, or personal information/);
+  assert.match(issueConfig, /blank_issues_enabled: false/);
+  assert.match(issueConfig, /url: https:\/\/magic-link\.app\//);
 });
