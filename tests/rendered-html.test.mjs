@@ -1,10 +1,30 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 
 async function builtFile(path) {
   return readFile(new URL(`../dist/${path}`, import.meta.url), "utf8");
 }
+
+test("public repository excludes private code and credentials", async () => {
+  const root = fileURLToPath(new URL("../", import.meta.url));
+  const files = execFileSync("git", ["ls-files", "-co", "--exclude-standard"], { cwd: root, encoding: "utf8" })
+    .split(/\r?\n/)
+    .filter(Boolean);
+  const privatePath = /^(?:commerce\/|private\/|public\/purchase\/|tests\/commerce\.test\.mjs$)/i;
+  const privateExtension = /\.(?:cs|csproj|sln|pfx|p12|jwk|key|pem)$/i;
+  for (const file of files) {
+    assert.doesNotMatch(file.replaceAll("\\", "/"), privatePath);
+    assert.doesNotMatch(file, privateExtension);
+    if (file === "tests/rendered-html.test.mjs") continue;
+    const content = await readFile(new URL(`../${file.replaceAll("\\", "/")}`, import.meta.url));
+    if (content.includes(0)) continue;
+    const text = content.toString("utf8");
+    assert.doesNotMatch(text, /BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY|\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]+|\bwhsec_[A-Za-z0-9]+/i, file);
+  }
+});
 
 test("builds the English landing page with search metadata", async () => {
   const html = await builtFile("index.html");
