@@ -40,7 +40,9 @@ test("builds the English landing page with search metadata", async () => {
   assert.match(html, /rel="canonical" href="https:\/\/magic-link\.app\/"/);
   assert.match(html, /hreflang="zh-CN" href="https:\/\/magic-link\.app\/zh-cn"/);
   assert.match(html, /Use your Magic devices/);
-  assert.match(html, /Free trial coming soon/);
+  assert.match(html, /Follow the public release/);
+  assert.match(html, /Complete Mouse controls/);
+  assert.match(html, /Complete Keyboard controls/);
   assert.match(html, /What is Magic Link for Windows\?/);
   assert.match(html, /Does Magic Trackpad work with Windows 11\?/);
   assert.match(html, /Can I use Magic Trackpad gestures on Windows\?/);
@@ -53,7 +55,9 @@ test("builds the Chinese landing page with search metadata", async () => {
   assert.match(html, /rel="canonical" href="https:\/\/magic-link\.app\/zh-cn"/);
   assert.match(html, /hreflang="en" href="https:\/\/magic-link\.app\/"/);
   assert.match(html, /在 Windows 上使用/);
-  assert.match(html, /试用版即将上线/);
+  assert.match(html, /关注正式发布/);
+  assert.match(html, /完整的鼠标控制/);
+  assert.match(html, /完整的键盘控制/);
   assert.match(html, /Magic Link 是什么？/);
   assert.match(html, /Magic Trackpad 可以在 Windows 11 上使用吗？/);
   assert.match(html, /可以在 Windows 上使用 Magic Trackpad 手势吗？/);
@@ -180,7 +184,7 @@ test("keeps hero images eager, defers secondary images, and ships every referenc
       await access(new URL(`../dist${src}`, import.meta.url));
     }
     assert.doesNotMatch(html, /<link[^>]+rel="preload"[^>]+trackpad-settings/);
-    assert.match(html, /class="releaseFollow"><a href="https:\/\/github.com\/sid12333\/magiclink\/releases"/);
+    assert.match(html, /class="releaseFollow"><a href="\/magic-trackpad-windows"/);
     assert.match(html, /href="https:\/\/github.com\/sid12333\/magiclink\/issues"/);
   }
 });
@@ -195,8 +199,8 @@ test("GitHub entry points connect product discovery, releases, support, and the 
   assert.match(readme, /https:\/\/magic-link\.app\/zh-cn/);
   assert.match(readme, /https:\/\/github\.com\/sid12333\/magiclink\/releases/);
   assert.match(readme, /https:\/\/github\.com\/sid12333\/magiclink\/issues/);
-  assert.match(readme, /There is no public download yet/);
-  assert.match(readme, /production-signed installer/);
+  assert.match(readme, /there is no public download or purchase flow yet/i);
+  assert.match(readme, /production-signed public installer/);
   assert.match(issueForm, /label: Magic Link version/);
   assert.match(issueForm, /label: Windows version/);
   assert.match(issueForm, /label: Device model/);
@@ -204,4 +208,22 @@ test("GitHub entry points connect product discovery, releases, support, and the 
   assert.match(issueForm, /contains no activation code, license file, or personal information/);
   assert.match(issueConfig, /blank_issues_enabled: false/);
   assert.match(issueConfig, /url: https:\/\/magic-link\.app\//);
+});
+
+test("builds focused product, install, and comparison pages", async () => {
+  const [trackpad, install, compare, sitemap] = await Promise.all([
+    builtFile("magic-trackpad-windows.html"),
+    builtFile("guides/install-magic-trackpad-windows-11.html"),
+    builtFile("compare/magic-link-vs-magic-utilities.html"),
+    builtFile("sitemap.xml"),
+  ]);
+  assert.match(trackpad, /Native-feeling Trackpad controls/);
+  assert.match(trackpad, /Actual Magic Link settings interface/);
+  assert.match(install, /No download is available yet/);
+  assert.match(install, /Inventory existing drivers/);
+  assert.match(compare, /Community Trackpad driver/);
+  assert.match(compare, /Facts checked 9 September 2026/);
+  for (const route of ["magic-trackpad-windows", "guides/install-magic-trackpad-windows-11", "compare/magic-link-vs-magic-utilities"]) {
+    assert.match(sitemap, new RegExp(`https://magic-link\\.app/${route}`));
+  }
 });

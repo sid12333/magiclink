@@ -10,37 +10,37 @@ const links = {
 
 const copy = {
   en: {
-    nav: ["Features", "Compatibility", "FAQ"],
+    nav: ["Features", "Compatibility", "Guides"],
     title: <>Use your Magic devices <br />on Windows</>,
     intro: "One app to connect and manage Magic Trackpad, Magic Mouse, and Magic Keyboard.",
-    trialSoon: "Free trial coming soon",
-    licenseDetails: "License details",
-    tryFirst: "Free for 30 days",
+    trialSoon: "Follow the public release",
+    licenseDetails: "Preview pricing",
+    tryFirst: "Product controls are complete. The production-signed public installer is being prepared.",
     facts: ["Windows 10 & 11", "64-bit", "Wired + Bluetooth"],
     featureLabel: "Why Magic Link",
     features: [
-      ["Full Trackpad controls", "Tune tracking, clicking, scrolling, zooming, and multi-finger gestures in one app."],
-      ["A steadier connection", "See how your device is connected and repair connection issues."],
-      ["One app for all three", "Discover and manage Magic Trackpad, Magic Mouse, and Magic Keyboard in one place."],
+      ["Complete Trackpad controls", "Tune tracking, clicking, scrolling, zooming, and multi-finger gestures in one app."],
+      ["Complete Mouse controls", "Configure your supported Magic Mouse and see how it is connected."],
+      ["Complete Keyboard controls", "Manage supported Magic Keyboard models alongside your Trackpad and Mouse."],
     ],
     compatibilityLabel: "Compatibility",
     compatibilityTitle: "Check compatibility before you buy.",
-    compatibilityBody: "Full drivers and settings are available for supported Magic Trackpad models. Magic Mouse and Magic Keyboard already work with Windows built-in drivers and can be managed in Magic Link. Advanced Magic Link controls are still in development.",
-    supported: "Fully supported",
-    supportedValue: "Supported Magic Trackpad models over a wired or Bluetooth connection",
+    compatibilityBody: "Controls for Magic Trackpad, Magic Mouse, and Magic Keyboard are complete. The first signed public release will publish the exact validated model and connection matrix so you can confirm compatibility before installing.",
+    supported: "Product status",
+    supportedValue: "Device-specific controls complete for Trackpad, Mouse, and Keyboard",
     system: "System requirements",
     systemValue: "Windows 10 or 11, x64",
-    developing: "In development",
-    developingValue: "Advanced Magic Mouse and Magic Keyboard controls",
+    developing: "Release status",
+    developingValue: "Production-signed public installer and final compatibility matrix in preparation",
     faqLabel: "FAQ",
     faqTitle: "Before you buy",
     faqs: [
-      ["What is Magic Link for Windows?", "Magic Link is an independent app for Apple input devices on Windows 10 and 11. It provides controls for supported Magic Trackpad models and manages Magic Mouse and Magic Keyboard. Advanced Mouse and Keyboard controls are still in development."],
+      ["What is Magic Link for Windows?", "Magic Link is an independent app with device-specific controls for supported Magic Trackpad, Magic Mouse, and Magic Keyboard models on Windows 10 and 11."],
       ["Does Magic Trackpad work with Windows 11?", "Yes. Magic Link supports compatible Magic Trackpad models on Windows 10 and 11 over wired or Bluetooth connections."],
       ["Can I use Magic Trackpad gestures on Windows?", "Yes. For supported models, Magic Link provides tracking, clicking, scrolling, zooming, and multi-finger gesture settings."],
-      ["Can I try it before buying?", "Yes. The 30-day free trial lets you test device, system, and driver compatibility."],
+      ["Can I try it before buying?", "A 30-day free trial is planned for the first public release so you can test device, system, and driver compatibility."],
       ["Does it work without an internet connection?", "Core settings and device use are local. License activation and update checks may require a connection."],
-      ["Do Magic Mouse and Magic Keyboard work now?", "Yes. Windows built-in drivers provide basic use. Magic Link can discover and manage them, while advanced controls are still in development."],
+      ["Are Magic Mouse and Magic Keyboard controls complete?", "Yes. Magic Link controls for all three device families are complete. The public installer is still being prepared."],
       ["Is Magic Link made by Apple?", "No. Magic Link is an independent Windows utility and is not affiliated with or endorsed by Apple."],
       ["Where do I report a problem?", "Use GitHub Issues and include your Windows version, device model, connection type, and diagnostics."],
     ],
@@ -50,37 +50,37 @@ const copy = {
     notice: "Independent software for Apple input devices on Windows.",
   },
   zh: {
-    nav: ["功能", "兼容性", "常见问题"],
+    nav: ["功能", "兼容性", "使用指南"],
     title: <>在 Windows 上使用 <br />Magic 设备</>,
     intro: "一个 App，连接和管理 Magic Trackpad、Magic Mouse、Magic Keyboard",
-    trialSoon: "试用版即将上线",
-    licenseDetails: "了解许可证",
-    tryFirst: "免费试用 30 天，购买前先确认兼容性。",
+    trialSoon: "关注正式发布",
+    licenseDetails: "查看价格方案",
+    tryFirst: "三类设备控制功能均已完成，正式签名安装包正在准备中。",
     facts: ["Windows 10 & 11", "64 位", "有线 + 蓝牙"],
     featureLabel: "为什么选择 Magic Link",
     features: [
-      ["完整的触控板控制", "在一个清晰界面中调整跟踪、点按、滚动、缩放和多指手势。"],
-      ["更稳定的连接", "查看设备连接方式、修复异常连接。"],
-      ["一个应用管理三种设备", "集中识别和管理 Magic Trackpad、Magic Mouse、Magic Keyboard。"],
+      ["完整的触控板控制", "调整跟踪、点按、滚动、缩放和多指手势。"],
+      ["完整的鼠标控制", "配置受支持的 Magic Mouse，并查看设备连接状态。"],
+      ["完整的键盘控制", "在同一应用中管理受支持的 Magic Keyboard、触控板和鼠标。"],
     ],
     compatibilityLabel: "兼容性",
     compatibilityTitle: "购买前确认兼容性。",
-    compatibilityBody: "受支持的 Magic Trackpad 已提供完整驱动和设置。Magic Mouse、Magic Keyboard 可通过 Windows 自带驱动完成基本使用，也可以在 Magic Link 中识别和管理；高级控制仍在开发。",
-    supported: "完整支持",
-    supportedValue: "通过有线或蓝牙连接的受支持 Magic Trackpad",
+    compatibilityBody: "Magic Trackpad、Magic Mouse 和 Magic Keyboard 的控制功能均已完成。首个正式签名版本会同时公布经过验证的具体型号与连接方式，方便你在安装前确认兼容性。",
+    supported: "产品状态",
+    supportedValue: "触控板、鼠标和键盘的专用控制功能均已完成",
     system: "系统要求",
     systemValue: "Windows 10 或 11，x64",
-    developing: "正在开发",
-    developingValue: "Magic Mouse、Magic Keyboard 高级控制",
+    developing: "发布状态",
+    developingValue: "正式签名安装包与最终兼容性表正在准备中",
     faqLabel: "常见问题",
     faqTitle: "购买前须知",
     faqs: [
-      ["Magic Link 是什么？", "Magic Link 是用于 Windows 10 和 11 的独立 Apple 输入设备软件，提供受支持的 Magic Trackpad 触控板控制，并管理 Magic Mouse 鼠标和 Magic Keyboard 键盘。鼠标与键盘高级控制仍在开发。"],
+      ["Magic Link 是什么？", "Magic Link 是用于 Windows 10 和 11 的独立软件，为受支持的 Magic Trackpad、Magic Mouse 和 Magic Keyboard 提供专用控制。"],
       ["Magic Trackpad 可以在 Windows 11 上使用吗？", "可以。Magic Link 支持兼容的 Magic Trackpad 型号，通过有线或蓝牙连接在 Windows 10 和 11 上使用。"],
       ["可以在 Windows 上使用 Magic Trackpad 手势吗？", "可以。对于受支持的型号，Magic Link 提供跟踪、点按、滚动、缩放和多指手势设置。"],
-      ["购买前可以试用吗？", "可以。30天的免费试用期。以便您测试设备、系统和驱动兼容性。"],
+      ["购买前可以试用吗？", "首个公开版本计划提供 30 天免费试用，方便你测试设备、系统和驱动兼容性。"],
       ["断网后还能使用吗？", "设备使用和核心设置在本地运行；许可证激活与检查更新可能需要联网。"],
-      ["Magic Mouse 和 Magic Keyboard 现在能用吗？", "可以。Windows 自带驱动支持基本使用，Magic Link 可以识别和管理设备，高级控制仍在开发。"],
+      ["Magic Mouse 和 Magic Keyboard 的控制完成了吗？", "已完成。Magic Link 的三类设备控制功能均已完成，目前正在准备公开安装包。"],
       ["Magic Link 是 Apple 官方软件吗？", "不是。Magic Link 是独立开发的 Windows 工具，与 Apple 没有关联，也未获得 Apple 背书。"],
       ["遇到问题在哪里反馈？", "请前往 GitHub Issues，并附上 Windows 版本、设备型号、连接方式和诊断信息。"],
     ],
@@ -101,7 +101,7 @@ export default function LandingPage({ language }: { language: Language }) {
         <div className="navLinks">
           <a href="#features">{c.nav[0]}</a>
           <a href="#compatibility">{c.nav[1]}</a>
-          <a href="#questions">{c.nav[2]}</a>
+          <a href="#guides">{c.nav[2]}</a>
           <a href="#buy">{isZh ? "价格" : "Pricing"}</a>
           <details className="mobileMenu">
             <summary>{isZh ? "菜单" : "Menu"}</summary>
@@ -109,7 +109,7 @@ export default function LandingPage({ language }: { language: Language }) {
               <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#features">{c.nav[0]}</a>
               <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#compatibility">{c.nav[1]}</a>
               <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#buy">{isZh ? "价格" : "Pricing"}</a>
-              <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#questions">{c.nav[2]}</a>
+              <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#guides">{c.nav[2]}</a>
             </div>
           </details>
 
@@ -121,11 +121,11 @@ export default function LandingPage({ language }: { language: Language }) {
         <h1>{c.title}</h1>
         <p className={`lede${isZh ? " zhLede" : ""}`}>{c.intro}</p>
         <div className="heroActions">
-          <span className="button disabled" aria-disabled="true">{c.trialSoon}</span>
+          <a className="button primary" href={links.releases}>{c.trialSoon}</a>
           <a className="button secondary" href="#buy">{c.licenseDetails}</a>
         </div>
         <p className="microcopy">{c.tryFirst}</p>
-        <p className="releaseFollow"><a href={links.releases}>{isZh ? "在 GitHub 查看发布动态" : "View release updates on GitHub"}</a></p>
+        <p className="releaseFollow"><a href="/magic-trackpad-windows">{isZh ? "查看 Magic Trackpad for Windows 专页（英文）" : "Explore Magic Trackpad for Windows"}</a></p>
         <DeviceStage />
       </section>
 
@@ -162,6 +162,17 @@ export default function LandingPage({ language }: { language: Language }) {
             <div><dt>{c.system}</dt><dd>{c.systemValue}</dd></div>
             <div><dt>{c.developing}</dt><dd>{c.developingValue}</dd></div>
           </dl>
+        </div>
+      </section>
+
+      <section className="section shell resourceSection" id="guides">
+        <p className="sectionLabel">{isZh ? "深入了解" : "Learn more"}</p>
+        <h2 className="sectionTitle compact">{isZh ? "安装前，把关键信息看清楚。" : "Know what to expect before installing."}</h2>
+        <div className="resourceGrid">
+          <a href="/guides/apple-magic-trackpad-windows-11"><strong>{isZh ? "Windows 11 触控板选型指南" : "The best way to use Magic Trackpad on Windows 11"}</strong><span>{isZh ? "免费驱动、Magic Utilities 与 Magic Link 如何选择（英文）" : "Choose by device model, gestures, and availability"}</span></a>
+          <a href="/magic-trackpad-windows"><strong>Magic Trackpad for Windows</strong><span>{isZh ? "功能、发布状态与兼容性说明（英文）" : "Features, release status, and compatibility notes"}</span></a>
+          <a href="/guides/install-magic-trackpad-windows-11"><strong>{isZh ? "Windows 11 安装指南" : "Windows 11 installation guide"}</strong><span>{isZh ? "安装前检查、驱动冲突与发布后步骤（英文）" : "Preflight checks, driver conflicts, and release steps"}</span></a>
+          <a href="/compare/magic-link-vs-magic-utilities"><strong>{isZh ? "方案对比" : "Compare Windows options"}</strong><span>{isZh ? "与免费驱动、Magic Utilities 的透明比较（英文）" : "A transparent comparison with free drivers and Magic Utilities"}</span></a>
         </div>
       </section>
 
