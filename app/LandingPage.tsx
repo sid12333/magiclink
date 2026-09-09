@@ -1,8 +1,8 @@
+import LicensePicker from "./LicensePicker";
+
 type Language = "en" | "zh";
 
 const links = {
-  download: import.meta.env.VITE_DOWNLOAD_URL || "",
-  checkout: import.meta.env.VITE_PADDLE_CHECKOUT_URL || "",
   github: "https://github.com/sid12333/magiclink",
   releases: "https://github.com/sid12333/magiclink/releases",
   issues: "https://github.com/sid12333/magiclink/issues",
@@ -11,16 +11,10 @@ const links = {
 const copy = {
   en: {
     nav: ["Features", "Compatibility", "FAQ"],
-    navTrial: "Free trial",
-    navSoon: "Coming soon",
-    eyebrow: "",
     title: <>Use your Magic devices <br />on Windows</>,
     intro: "One app to connect and manage Magic Trackpad, Magic Mouse, and Magic Keyboard.",
-    trial: "Download free trial",
     trialSoon: "Free trial coming soon",
-    purchase: "Buy license",
     licenseDetails: "License details",
-    purchaseSoon: "Purchase coming soon",
     tryFirst: "Free for 30 days",
     facts: ["Windows 10 & 11", "64-bit", "Wired + Bluetooth"],
     featureLabel: "Why Magic Link",
@@ -38,11 +32,6 @@ const copy = {
     systemValue: "Windows 10 or 11, x64",
     developing: "In development",
     developingValue: "Advanced Magic Mouse and Magic Keyboard controls",
-    buyLabel: "Try it free for 30 days",
-    buyTitle: "One license. One Windows PC.",
-    buyBody: "Download the free trial and make sure your setup works. One license covers every supported Magic Link device on that PC.",
-    checkoutNote: "Purchases open with the first production-signed release.",
-    promoNote: "The free trial and purchases open with the first production-signed release.",
     faqLabel: "FAQ",
     faqTitle: "Before you buy",
     faqs: [
@@ -62,16 +51,10 @@ const copy = {
   },
   zh: {
     nav: ["功能", "兼容性", "常见问题"],
-    navTrial: "免费试用",
-    navSoon: "即将上线",
-    eyebrow: "",
     title: <>在 Windows 上使用 <br />Magic 设备</>,
     intro: "一个 App，连接和管理 Magic Trackpad、Magic Mouse、Magic Keyboard",
-    trial: "下载免费试用版",
     trialSoon: "试用版即将上线",
-    purchase: "购买许可证",
     licenseDetails: "了解许可证",
-    purchaseSoon: "即将上线",
     tryFirst: "免费试用 30 天，购买前先确认兼容性。",
     facts: ["Windows 10 & 11", "64 位", "有线 + 蓝牙"],
     featureLabel: "为什么选择 Magic Link",
@@ -89,11 +72,6 @@ const copy = {
     systemValue: "Windows 10 或 11，x64",
     developing: "正在开发",
     developingValue: "Magic Mouse、Magic Keyboard 高级控制",
-    buyLabel: "免费试用 30 天",
-    buyTitle: "一份许可证，一台 Windows 电脑。",
-    buyBody: "先下载免费试用版，确认你的设备可以正常工作。一份许可证覆盖该电脑上所有受支持的 Magic Link 设备。",
-    checkoutNote: "首个正式签名版本发布后开放购买。",
-    promoNote: "首个正式签名版本发布后开放试用和购买。",
     faqLabel: "常见问题",
     faqTitle: "购买前须知",
     faqs: [
@@ -116,8 +94,6 @@ const copy = {
 export default function LandingPage({ language }: { language: Language }) {
   const c = copy[language];
   const isZh = language === "zh";
-  const hasDownload = Boolean(links.download);
-  const hasCheckout = Boolean(links.checkout);
   return (
     <main lang={isZh ? "zh-CN" : "en"}>
       <nav className="nav shell" aria-label={isZh ? "主导航" : "Primary navigation"}>
@@ -126,25 +102,30 @@ export default function LandingPage({ language }: { language: Language }) {
           <a href="#features">{c.nav[0]}</a>
           <a href="#compatibility">{c.nav[1]}</a>
           <a href="#questions">{c.nav[2]}</a>
-          {hasDownload
-            ? <a className="navTrial" href={links.download}>{c.navTrial}</a>
-            : <span className="navTrial navDisabled" aria-disabled="true">{c.navSoon}</span>}
+          <a href="#buy">{isZh ? "价格" : "Pricing"}</a>
+          <details className="mobileMenu">
+            <summary>{isZh ? "菜单" : "Menu"}</summary>
+            <div className="mobileMenuLinks">
+              <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#features">{c.nav[0]}</a>
+              <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#compatibility">{c.nav[1]}</a>
+              <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#buy">{isZh ? "价格" : "Pricing"}</a>
+              <a onClick={(event) => event.currentTarget.closest("details")?.removeAttribute("open")} href="#questions">{c.nav[2]}</a>
+            </div>
+          </details>
+
           <a className="language" href={isZh ? "/" : "/zh-cn"} aria-label={isZh ? "Switch to English" : "切换到中文"}>{isZh ? "EN" : "中文"}</a>
         </div>
       </nav>
 
       <section className="hero shell" id="top">
-        {c.eyebrow && <p className="eyebrow">{c.eyebrow}</p>}
         <h1>{c.title}</h1>
         <p className={`lede${isZh ? " zhLede" : ""}`}>{c.intro}</p>
         <div className="heroActions">
-          {hasDownload
-            ? <a className="button primary" href={links.download}>{c.trial}</a>
-            : <span className="button disabled" aria-disabled="true">{c.trialSoon}</span>}
-          <a className="button secondary" href="#buy">{hasCheckout ? c.purchase : c.licenseDetails}</a>
+          <span className="button disabled" aria-disabled="true">{c.trialSoon}</span>
+          <a className="button secondary" href="#buy">{c.licenseDetails}</a>
         </div>
         <p className="microcopy">{c.tryFirst}</p>
-        {!hasDownload && <p className="releaseFollow"><a href={links.releases}>{isZh ? "在 GitHub 查看发布动态" : "View release updates on GitHub"}</a></p>}
+        <p className="releaseFollow"><a href={links.releases}>{isZh ? "在 GitHub 查看发布动态" : "View release updates on GitHub"}</a></p>
         <DeviceStage />
       </section>
 
@@ -185,19 +166,7 @@ export default function LandingPage({ language }: { language: Language }) {
       </section>
 
       <section className="section shell buy" id="buy">
-        <p className="sectionLabel">{c.buyLabel}</p>
-        <h2 className="sectionTitle compact">{c.buyTitle}</h2>
-        <p className="sectionBody centered">{c.buyBody}</p>
-        <div className="buyActions">
-          {hasDownload
-            ? <a className="button primary" href={links.download}>{c.trial}</a>
-            : <span className="button disabled" aria-disabled="true">{c.trialSoon}</span>}
-          {hasCheckout
-            ? <a className="button blue" href={links.checkout}>{c.purchase}</a>
-            : <span className="button disabled" aria-disabled="true">{c.purchaseSoon}</span>}
-        </div>
-        {!hasDownload && !hasCheckout && <p className="checkoutNote">{c.promoNote}</p>}
-        {hasDownload && !hasCheckout && <p className="checkoutNote">{c.checkoutNote}</p>}
+        <LicensePicker language={language} />
       </section>
 
       <section className="section questions shell" id="questions">
@@ -213,7 +182,8 @@ export default function LandingPage({ language }: { language: Language }) {
       <footer>
         <div className="shell footerInner">
           <div><a className="brand" href="#top">Magic Link</a><p>{c.notice}</p></div>
-          <div className="footerLinks"><a href={links.github}>{c.github}</a><a href={links.releases}>{c.releases}</a><a href={links.issues}>{c.support}</a><a href="/third-party-notices">{isZh ? "第三方声明" : "Third-party notices"}</a></div>
+          <div className="footerLinks"><a href={links.github}>{c.github}</a><a href={links.releases}>{c.releases}</a><a href={links.issues}>{c.support}</a><a href="/third-party-notices">{isZh ? "第三方声明" : "Third-party notices"}</a>
+          </div>
         </div>
         <p className="legal shell">Magic Link is independent software and is not affiliated with or endorsed by Apple Inc. Apple, Magic Trackpad, Magic Mouse, and Magic Keyboard are trademarks of Apple Inc.</p>
       </footer>

@@ -53,15 +53,13 @@ Magic Link is independent software and is not affiliated with or endorsed by App
 <details>
 <summary><strong>Website development and deployment</strong></summary>
 
-This repository contains the bilingual Magic Link product website. It does not contain the application source code, license private keys, or activation tools.
+This repository contains only the bilingual Magic Link product introduction website, public pricing display, and website build/test files. It does not contain the application source code, payment integration, order processing, license private keys, or activation tools. Purchase buttons are disabled.
 
 - `/` — global English page
 - `/zh-cn` — Simplified Chinese page
 - `/third-party-notices` — third-party notices
 - `public/404.html` — not-found page
 - `wrangler.json` — Cloudflare Workers Static Assets configuration
-- `VITE_DOWNLOAD_URL` — signed installer or GitHub Release URL after publication
-- `VITE_PADDLE_CHECKOUT_URL` — Paddle checkout URL after sales open
 
 ```bash
 npm install

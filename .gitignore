@@ -47,3 +47,11 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+
+# Internal payment operations and research never belong in the public website
+/docs/stripe-*
+/docs/*research*
+/app/commerce-config.ts
+/app/license-selection.ts
+/tests/commerce-config.test.mjs
+/tests/license-interaction.test.mjs
