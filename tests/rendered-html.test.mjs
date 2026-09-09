@@ -19,9 +19,16 @@ test("public repository excludes private code and credentials", async () => {
     assert.doesNotMatch(file.replaceAll("\\", "/"), privatePath);
     assert.doesNotMatch(file, privateExtension);
     if (file === "tests/rendered-html.test.mjs") continue;
-    const content = await readFile(new URL(`../${file.replaceAll("\\", "/")}`, import.meta.url));
+    const content = await readFile(new URL(`../${file.replaceAll("\\", "/")}`, import.meta.url)).catch((error) => {
+      if (error.code === "ENOENT") return null; // A tracked file removed from the working tree.
+      throw error;
+    });
+    if (!content) continue;
+    assert.doesNotMatch(file, /(?:^|\/)(?:\.env|stripe-|commerce-config|license-selection)|research/i);
     if (content.includes(0)) continue;
     const text = content.toString("utf8");
+    if (file === ".gitignore") continue;
+    assert.doesNotMatch(text, /buy\.stripe\.com|\b(?:acct|price|plink)_[A-Za-z0-9]+|VITE_STRIPE|VITE_SALES_ENABLED/, file);
     assert.doesNotMatch(text, /BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY|\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]+|\bwhsec_[A-Za-z0-9]+/i, file);
   }
 });
@@ -156,8 +163,9 @@ test("serves the existing third-party notice locally, without the broken GitHub 
 test("keeps hero images eager, defers secondary images, and ships every referenced asset", async () => {
   for (const file of ["index.html", "zh-cn.html"]) {
     const html = await builtFile(file);
+    assert.doesNotMatch(html, /buy\.stripe\.com|测试付款|Stripe sandbox|checkout-session/);
     const images = [...html.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
-    assert.equal(images.length, 8);
+    assert.equal(images.length, 11);
     for (const img of images) {
       assert.match(img, /width="\d+"/);
       assert.match(img, /height="\d+"/);
